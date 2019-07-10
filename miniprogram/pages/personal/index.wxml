@@ -1,0 +1,9 @@
+<view class="personal-contain">
+<!-- 头像 -->
+    <view class="person-login">
+        <view class="person-head"></view>
+        <view class="person-name">name</view>
+    </view>
+
+    <button type="primary" bindtap="login">Login</button>
+</view>

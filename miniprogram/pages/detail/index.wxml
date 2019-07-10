@@ -1,0 +1,36 @@
+<view class="detail-contain">
+    <!-- 背景图 -->
+    <image class="desc-img" src="{{imgsrc}}" />
+    <!-- 标题介绍 -->
+    <view class="detail-desc">
+        <view class="desc-title">
+            <view class="title-img">
+                <image src="{{imgsrc}}" />
+            </view>
+            <view class="title-text">
+                <p>{{title}}</p>
+            </view>
+        </view>
+        <!-- 内容介绍 -->
+        <view class="main-desc-partone">
+            <!-- 评分 -->
+            <view>
+                评分: 豆瓣
+                <span>{{rank}}</span>
+            </view>
+            <view>
+                导演:
+                <span>{{director}}</span>
+            </view>
+            <view>
+                主演:
+                <span>{{role}}</span>
+            </view>
+        </view>
+        <!-- 摘要 -->
+        <view class="main-desc-parttwo">
+            <p>摘要:</p>
+            <view class="summary">{{summary}}</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,49 @@
+.list-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: top;
+    padding: 15rpx 20rpx;
+    border-bottom: 1rpx #e8e8e8 solid
+}
+
+.item-img{
+    width: 150rpx;
+    height: 180rpx;
+    border-radius: 10rpx
+}
+.item-desc{
+    color: #000;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 0 10rpx;
+}
+.item-desc p:nth-child(1){
+    font-size: 18px;
+    margin-bottom: 10rpx;
+}
+.item-desc p:nth-child(2){
+    color: #999;
+    margin-bottom: 10rpx;
+}
+.item-desc p:nth-child(3){
+    color: #666;
+}
+
+.item-rank{
+    width: 80rpx;
+    font-size: 14px;
+}
+.item-rank span{
+    width: 50rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    display: block;
+    color: #fff;
+    background-color: rgb(255, 95, 95);
+    border-radius: 50%;
+    padding: 5rpx;
+}

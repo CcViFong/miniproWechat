@@ -1,0 +1,15 @@
+<view class="list-contain">
+    <!-- 每一条内容 -->
+    <view class="list-item" wx:for="{{listData}}" wx:key="{{index}}" id="{{index}}" bindtap="senddata">
+        <!-- 图片 -->
+        <image src="{{item.src}}" class="item-img"/>
+        <!-- 介绍 -->
+        <view class="item-desc">
+            <p>{{item.title}}</p>
+            <p>{{item.entitle}}</p>
+            <p>导演：<span>{{item.director}}</span></p>
+        </view>
+        <!-- 评分 -->
+        <view class="item-rank"><span>{{item.rank}}</span></view>
+    </view>
+</view>
