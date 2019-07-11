@@ -1,9 +1,20 @@
 <view class="personal-contain">
 <!-- 头像 -->
     <view class="person-login">
-        <view class="person-head"></view>
-        <view class="person-name">name</view>
+        <view class="person-head">
+            <image src="{{url}}" class="head-img"/>
+        </view>
+        <view class="person-name">{{name}}</view>
+        <button type="primary" bindtap="login" size="mini" open-type="getUserInfo" wx:if="{{flag}}">授权登录</button>
     </view>
 
-    <button type="primary" bindtap="login">Login</button>
+    <!-- 选项栏 -->
+    <view class="person-items" wx:if="{{itemshow}}">
+        <!-- 具体每一栏 -->
+        <view class="items-row" wx:for="{{items}}" wx:key="{{index}}">
+            <view class="iconfont {{item.icon}} row-left-icon"></view>
+            <view class="row-text">{{item.text}}</view>
+            <view class="iconfont icon-arrow row-right-icon"></view>
+        </view>
+    </view>
 </view>

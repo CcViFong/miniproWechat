@@ -13,7 +13,7 @@
         <!-- 标题 -->
         <view class="sort-title">
             <view class="title-left">正在热映电影</view>
-            <view class="title-right" data-name="fdata" bindtap="golist">More</view>
+            <view class="iconfont icon-arrow title-right" data-name="fdata" bindtap="golist"></view>
         </view>
         <!-- 可滑动内容展示 -->
         <view>
@@ -31,7 +31,7 @@
         <!-- 标题 -->
         <view class="sort-title">
             <view class="title-left">悬疑高分大片</view>
-            <view class="title-right" data-name="sdata" bindtap="golist">More</view>
+            <view class="iconfont icon-arrow title-right" data-name="sdata" bindtap="golist"></view>
         </view>
         <!-- 可滑动内容展示 -->
         <view>
@@ -49,7 +49,7 @@
         <!-- 标题 -->
         <view class="sort-title">
             <view class="title-left">经典高分大片</view>
-            <view class="title-right" data-name="tdata" bindtap="golist">More</view>
+            <view class="iconfont icon-arrow title-right" data-name="tdata" bindtap="golist"></view>
         </view>
         <!-- 可滑动内容展示 -->
         <view>
@@ -67,7 +67,7 @@
         <!-- 标题 -->
         <view class="sort-title">
             <view class="title-left">恐怖高分大片</view>
-            <view class="title-right" data-name="fhdata" bindtap="golist">More</view>
+            <view class="iconfont icon-arrow title-right" data-name="fhdata" bindtap="golist"></view>
         </view>
         <!-- 可滑动内容展示 -->
         <view>
