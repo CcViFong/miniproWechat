@@ -23,7 +23,7 @@ Page({
   senddata(e){
     let current = parseInt(e.currentTarget.id)
     wx.navigateTo({
-      url: `/pages/detail/index?src=${this.data.listData[current].src}&title=${this.data.listData[current].title}&rank=${this.data.listData[current].rank}&director=${this.data.listData[current].director}&role=${this.data.listData[current].role}&summary=${this.data.listData[current].summary}`
+      url: `/pages/detail/index?src=${this.data.listData[current].src}&title=${this.data.listData[current].title}&rank=${this.data.listData[current].rank}&director=${this.data.listData[current].director}&role=${this.data.listData[current].role}&summary=${this.data.listData[current].summary}&videourl=${this.data.listData[current].videourl}`
     })
   },
   /**

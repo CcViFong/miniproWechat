@@ -84,7 +84,7 @@ Page({
     const db = wx.cloud.database({ env: 'v001-57ea91' })
     db.collection('filmData').get().then(res => {
       this.setData({
-        secret: res.data[1].pwd,
+        secret: res.data[0].pwd,
       })
     })
     wx.checkSession({
@@ -107,7 +107,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.init();
+    // this.init();
   },
 
   /**

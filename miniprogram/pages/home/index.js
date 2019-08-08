@@ -17,31 +17,39 @@ Page({
     foudata:[],
   },
 
+  // 点击第一组中的其中一个显示详情内容
   sendfdata(e) {
-    let current = parseInt(e.currentTarget.id)
+    let current = parseInt(e.currentTarget.id);
     wx.navigateTo({
-      url: `/pages/detail/index?src=${this.data.fdata[current].src}&title=${this.data.fdata[current].title}&rank=${this.data.fdata[current].rank}&director=${this.data.fdata[current].director}&role=${this.data.fdata[current].role}&summary=${this.data.fdata[current].summary}`
-    })
-  },
-  sendsdata(e) {
-    let current = parseInt(e.currentTarget.id)
-    wx.navigateTo({
-      url: `/pages/detail/index?src=${this.data.secdata[current].src}&title=${this.data.secdata[current].title}&rank=${this.data.secdata[current].rank}&director=${this.data.secdata[current].director}&role=${this.data.secdata[current].role}&summary=${this.data.secdata[current].summary}`
-    })
-  },
-  sendtdata(e) {
-    let current = parseInt(e.currentTarget.id)
-    wx.navigateTo({
-      url: `/pages/detail/index?src=${this.data.thidata[current].src}&title=${this.data.thidata[current].title}&rank=${this.data.thidata[current].rank}&director=${this.data.thidata[current].director}&role=${this.data.thidata[current].role}&summary=${this.data.thidata[current].summary}`
-    })
-  },
-  sendfhdata(e) {
-    let current = parseInt(e.currentTarget.id)
-    wx.navigateTo({
-      url: `/pages/detail/index?src=${this.data.foudata[current].src}&title=${this.data.foudata[current].title}&rank=${this.data.foudata[current].rank}&director=${this.data.foudata[current].director}&role=${this.data.foudata[current].role}&summary=${this.data.foudata[current].summary}`
+      url: `/pages/detail/index?&name=${'fdata'}&num=${current}&title=${this.data.fdata[current].title}`
     })
   },
 
+  // 点击第二组中的其中一个显示详情内容
+  sendsdata(e) {
+    let current = parseInt(e.currentTarget.id)
+    wx.navigateTo({
+      url: `/pages/detail/index?&name=${'sdata'}&num=${current}&title=${this.data.secdata[current].title}`
+    })
+  },
+
+  // 点击第三组中的其中一个显示详情内容
+  sendtdata(e) {
+    let current = parseInt(e.currentTarget.id)
+    wx.navigateTo({
+      url: `/pages/detail/index?&name=${'tdata'}&num=${current}&title=${this.data.thidata[current].title}`
+    })
+  },
+
+  // 点击第四组中的其中一个显示详情内容
+  sendfhdata(e) {
+    let current = parseInt(e.currentTarget.id)
+    wx.navigateTo({
+      url: `/pages/detail/index?&name=${'fhdata'}&num=${current}&title=${this.data.foudata[current].title}`
+    })
+  },
+
+  // 点击进入列表
   golist(val) {
     wx.navigateTo({
       url: `/pages/listall/index?name=${val.currentTarget.dataset.name}`
@@ -52,6 +60,7 @@ Page({
   getData() {
     const db = wx.cloud.database({ env: 'v001-57ea91' })
     db.collection('filmData').get().then(res => {
+      
       this.setData({
         scroll: res.data[0].scrolldata,
         fdata: res.data[0].fdata,

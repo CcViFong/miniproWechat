@@ -10,24 +10,35 @@ Page({
     rank: '',
     director: '',
     role: '',
-    summary: ''
+    summary: '',
+    videourl: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {    
+  onLoad: function (options) {
+    // console.log(options)
     wx.setNavigationBarTitle({
       title: options.title
     })
-    // 渲染数据
-    this.setData({
-      imgsrc: options.src,
-      title: options.title,
-      rank: options.rank,
-      director: options.director,
-      role: options.role,
-      summary: options.summary
+    this.getALLData(options.name, options.num);
+  },
+
+  // 获取页面上的数据
+  getALLData(name, num) {
+    const db = wx.cloud.database({ env: 'v001-57ea91' })
+    db.collection('filmData').get().then(res => {
+      let list = res.data[0][name][parseInt(num)];
+      this.setData({
+        imgsrc: list.src,
+        title: list.title,
+        rank: list.rank,
+        director: list.director,
+        role: list.role,
+        summary: list.summary,
+        videourl: list.videourl
+      })
     })
   },
 
