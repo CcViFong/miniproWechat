@@ -18,7 +18,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // console.log(options)
     wx.setNavigationBarTitle({
       title: options.title
     })
@@ -36,9 +35,34 @@ Page({
         rank: list.rank,
         director: list.director,
         role: list.role,
-        summary: list.summary,
-        videourl: list.videourl
+        summary: list.summary
       })
+      this.getVideoInfo(list.videourl);
+    })    
+  },
+
+  // 动态获取腾讯视频上的播放地址
+  getVideoInfo(vid) {
+    let that = this;
+    wx.request({
+      url: `https://vv.video.qq.com/getinfo?vid=${vid}&platform=101001&charge=0&otype=json`,
+      method: 'get',
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        let dataJson = res.data.replace(/QZOutputJson=/, '') + "qwe";
+        let dataJson1 = dataJson.replace(/;qwe/, '');
+        let data = JSON.parse(dataJson1);
+        let url = data.vl.vi[0].ul.ui[0].url
+        let url2 = url.replace(/http/, "https"); //把'http'替换为https
+        let fu = data.vl.vi[0].fn
+        let fvkey = data.vl.vi[0].fvkey
+        let realUrl = `${url2}${fu}?vkey=${fvkey}`
+        that.setData({
+          videourl: realUrl
+        })
+      }
     })
   },
 
