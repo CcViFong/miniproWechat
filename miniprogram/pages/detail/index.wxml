@@ -29,7 +29,12 @@
         <view class="main-desc-partone">
             <!-- 评分 -->
             <view>
-                评分: 豆瓣
+                <span>评分: </span>
+                <span class="stars-box {{starflag >= 1? 'stars-box-on':''}}"></span>
+                <span class="stars-box {{starflag >= 2? 'stars-box-on':''}}"></span>
+                <span class="stars-box {{starflag >= 3? 'stars-box-on':''}}"></span>
+                <span class="stars-box {{starflag >= 4? 'stars-box-on':''}}"></span>
+                <span class="stars-box {{starflag >= 5? 'stars-box-on':''}}"></span>
                 <span>{{rank}}</span>
             </view>
             <view>

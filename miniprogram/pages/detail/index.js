@@ -1,4 +1,4 @@
-// pages/listall/index.js
+const app = getApp(); 
 Page({
   /**
    * 页面的初始数据
@@ -10,7 +10,8 @@ Page({
     director: '',  //导演
     role: '',   //演员
     summary: '',  //概要
-    videourl: ''  //腾讯视频的视频id
+    videourl: '',  //腾讯视频的视频id
+    starflag:''  //评分的标志  
   },
 
   /**
@@ -25,8 +26,7 @@ Page({
 
   // 获取页面上的数据
   getALLData(name, num) {
-    const db = wx.cloud.database({ env: 'v001-57ea91' })
-    db.collection('filmData').get().then(res => {
+    app.getCloudData().then(res => {
       let list = res.data[0][name][parseInt(num)];
       this.setData({
         imgsrc: list.src,
@@ -35,7 +35,8 @@ Page({
         director: list.director,
         role: list.role,
         summary: list.summary,
-        videourl:list.videourl
+        videourl:list.videourl,
+        starflag:list.star
       })
     })    
   },

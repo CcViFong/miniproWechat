@@ -1,18 +1,17 @@
-// pages/listall/index.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    listData:[],
-    dataname:''
+    listData: [],
+    dataname: ''
   },
 
   // 获取云数据库中的数据
   getData() {
-    const db = wx.cloud.database({ env: 'v001-57ea91' })
-    db.collection('filmData').get().then(res => {
+    app.getCloudData().then(res => {
       this.setData({
         listData: res.data[0][this.data.dataname]
       })
@@ -20,7 +19,7 @@ Page({
   },
 
   // 跳转对应的网页
-  senddata(e){
+  senddata(e) {
     let current = parseInt(e.currentTarget.id)
     wx.navigateTo({
       url: `/pages/detail/index?&name=${this.data.dataname}&num=${current}&title=${this.data.listData[current].title}`
@@ -31,9 +30,9 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      dataname:options.name
+      dataname: options.name
     })
-    this.getData(); 
+    this.getData();
   },
 
   /**

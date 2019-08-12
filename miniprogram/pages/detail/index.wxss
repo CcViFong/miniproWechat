@@ -64,6 +64,30 @@ page{
 .main-desc-partone view{
     margin: 8rpx 0;
 }
+/* 暗的星星 */
+.stars-box{
+    width: 30rpx;
+    height: 30rpx;
+    display: inline-block;
+    margin:0 5rpx;  
+    background: url('https://s2.ax1x.com/2019/08/12/mSJxWF.png'); 
+    background-size: 100% 100%;
+}
+.stars-box:nth-of-type(6){
+    margin:0 15rpx 0 5rpx;
+}
+
+/* 亮的星星 */
+.stars-box-on{
+    width: 30rpx;
+    height: 30rpx;
+    display: inline-block;
+    margin:0 5rpx;  
+    background: url('https://s2.ax1x.com/2019/08/12/mSJzz4.png'); 
+    background-size: 100% 100%;
+}
+
+
 .main-desc-parttwo{
     margin-top: 60rpx;
 }

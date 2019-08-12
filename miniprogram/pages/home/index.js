@@ -1,4 +1,4 @@
-// pages/home/index.js
+const app = getApp()
 Page({
 
   /**
@@ -6,15 +6,15 @@ Page({
    */
   data: {
     // 轮播图显示数据
-    scroll:[],
+    scroll: [],
     // 第一栏显示数组
     fdata: [],
     // 第二栏显示数组
-    secdata:[],
+    secdata: [],
     // 第三栏显示数组
-    thidata:[],
+    thidata: [],
     // 第四栏显示数组
-    foudata:[],
+    foudata: [],
   },
 
   // 点击第一组中的其中一个显示详情内容
@@ -58,9 +58,7 @@ Page({
 
   // 获取云数据库中的数据
   getData() {
-    const db = wx.cloud.database({ env: 'v001-57ea91' })
-    db.collection('filmData').get().then(res => {
-      
+    app.getCloudData().then(res => {
       this.setData({
         scroll: res.data[0].scrolldata,
         fdata: res.data[0].fdata,
@@ -73,7 +71,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function () {
     this.getData();
   },
 
