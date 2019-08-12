@@ -26,8 +26,13 @@ page{
 }
 
 .detail-video{
-    margin:15rpx 0 0 50%;
-    left: -150px; 
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10rpx 0;
+    box-sizing: border-box;
 }
 
 .desc-title{

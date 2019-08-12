@@ -8,9 +8,18 @@
             <view class="title-img">
                 <image src="{{imgsrc}}" />
             </view>
-
-            <!-- 视频播放 -->
-            <video class="detail-video" src="{{videourl}}" title="{{title}}"></video>
+            <!-- 腾讯视频播放器 -->
+           <txv-video class="detail-video"
+            vid="{{videourl}}"             
+            playerid="txvideo"
+            width="300px" 
+            height="225px" 
+            usePoster="{{true}}" 
+            showCenterPlayBtn="{{true}}"
+            title="{{title}}"
+            bindended="playAdEnd"
+            showMuteBtn="{{true}}"
+            ></txv-video>          
 
             <view class="title-text">
                 <p>{{title}}</p>

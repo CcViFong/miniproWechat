@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
-  "navigationBarTitleText":""
+  "usingComponents": {
+    "txv-video": "plugin://tencentvideo/video"
+  },
+  "navigationBarTitleText": ""
 }

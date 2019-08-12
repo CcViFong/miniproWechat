@@ -1,17 +1,16 @@
 // pages/listall/index.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    imgsrc: '',
-    title: '',
-    rank: '',
-    director: '',
-    role: '',
-    summary: '',
-    videourl: ''
+    imgsrc: '', //背景图片及海报
+    title: '',  //标题
+    rank: '',   //评分
+    director: '',  //导演
+    role: '',   //演员
+    summary: '',  //概要
+    videourl: ''  //腾讯视频的视频id
   },
 
   /**
@@ -35,35 +34,19 @@ Page({
         rank: list.rank,
         director: list.director,
         role: list.role,
-        summary: list.summary
+        summary: list.summary,
+        videourl:list.videourl
       })
-      this.getVideoInfo(list.videourl);
     })    
   },
 
-  // 动态获取腾讯视频上的播放地址
-  getVideoInfo(vid) {
-    let that = this;
-    wx.request({
-      url: `https://vv.video.qq.com/getinfo?vid=${vid}&platform=101001&charge=0&otype=json`,
-      method: 'get',
-      header: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      success: function (res) {
-        let dataJson = res.data.replace(/QZOutputJson=/, '') + "qwe";
-        let dataJson1 = dataJson.replace(/;qwe/, '');
-        let data = JSON.parse(dataJson1);
-        let url = data.vl.vi[0].ul.ui[0].url
-        let url2 = url.replace(/http/, "https"); //把'http'替换为https
-        let fu = data.vl.vi[0].fn
-        let fvkey = data.vl.vi[0].fvkey
-        let realUrl = `${url2}${fu}?vkey=${fvkey}`
-        that.setData({
-          videourl: realUrl
-        })
-      }
-    })
+  // 检测视频插件中广告播放结束后立即播放视频内容
+  playAdEnd(e){
+    const TxvContext = requirePlugin("tencentvideo");
+    let txvContext = TxvContext.getTxvContext('txvideo');
+    if(e.detail.isAd){ //e.detail.isAd: true为广告类型  false为非广告类型
+      txvContext.play();  //视频播放
+    }
   },
 
   /**
@@ -99,7 +82,7 @@ Page({
    */
   onPullDownRefresh: function () {
 
-  },
+  },  
 
   /**
    * 页面上拉触底事件的处理函数
