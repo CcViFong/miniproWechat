@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // 展示的数据
     listData: [],
+    // 获取数据的名称
     dataname: ''
   },
 

@@ -20,15 +20,15 @@ page{
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, .3);
+    background-color: rgb(238, 165, 210, 0.3);
+    display: flex;
 }
-.loginbtn{    
-    position: absolute;
-    bottom: 15%;
-    text-align: center;
+.loginbtn{  
+    width: 400rpx;
+    height: 200rpx;
+    margin: auto;
+}
+.imgbtn{
     width: 100%;
-}
-.btn{
-    width:60%;
-    margin:0 auto;
+    height: 100%;
 }

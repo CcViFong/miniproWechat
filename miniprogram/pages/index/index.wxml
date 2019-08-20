@@ -1,15 +1,9 @@
 <!-- index.wxml -->
-<view class="container">
-    <swiper autoplay interval="2500" circular class="containswiper">
-        <block wx:for="{{fbgPic}}" wx:key="{{index}}">
-            <swiper-item>
-                <image class="swiperimg" src="{{item.src}}" />
-            </swiper-item>
-        </block>
-    </swiper>
-    <view class="Modal">
-        <view class="loginbtn">
-            <button type="warn" plain class="btn" bindtap="goHome">立即体验</button>
+<view class="container">   
+    <view class="containswiper"><image class="swiperimg" src="https://s2.ax1x.com/2019/08/20/mJl2Ps.jpg" /></view>
+    <view class="Modal" animation="{{ani}}">
+        <view class="loginbtn" bindtap="goHome">
+            <image class="imgbtn" src="https://s2.ax1x.com/2019/08/20/mJ0iF0.png" />
         </view>
     </view>
 </view>
