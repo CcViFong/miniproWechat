@@ -49,7 +49,7 @@
         <!-- 摘要 -->
         <view class="main-desc-parttwo">
             <p>摘要:</p>
-            <view class="summary">{{summary}}</view>
+            <view class="summary" wx:for="{{summary}}" wx:key="{{index}}">{{item}}</view>
         </view>
     </view>
 </view>

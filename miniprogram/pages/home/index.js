@@ -17,48 +17,56 @@ Page({
     foudata: [],
   },
 
+  // 点击轮播图进入详细内容
+  sendscroll(e){
+    let current = parseInt(e.currentTarget.id);
+    wx.navigateTo({
+      url: `/pages/detail/index?&name=${'scrolldata'}&num=${current}&title=${this.data.scroll[current].title}`
+    });
+  },
+
   // 点击第一组中的其中一个显示详情内容
   sendfdata(e) {
     let current = parseInt(e.currentTarget.id);
     wx.navigateTo({
       url: `/pages/detail/index?&name=${'fdata'}&num=${current}&title=${this.data.fdata[current].title}`
-    })
+    });
   },
 
   // 点击第二组中的其中一个显示详情内容
   sendsdata(e) {
-    let current = parseInt(e.currentTarget.id)
+    let current = parseInt(e.currentTarget.id);
     wx.navigateTo({
       url: `/pages/detail/index?&name=${'sdata'}&num=${current}&title=${this.data.secdata[current].title}`
-    })
+    });
   },
 
   // 点击第三组中的其中一个显示详情内容
   sendtdata(e) {
-    let current = parseInt(e.currentTarget.id)
+    let current = parseInt(e.currentTarget.id);
     wx.navigateTo({
       url: `/pages/detail/index?&name=${'tdata'}&num=${current}&title=${this.data.thidata[current].title}`
-    })
+    });
   },
 
   // 点击第四组中的其中一个显示详情内容
   sendfhdata(e) {
-    let current = parseInt(e.currentTarget.id)
+    let current = parseInt(e.currentTarget.id);
     wx.navigateTo({
       url: `/pages/detail/index?&name=${'fhdata'}&num=${current}&title=${this.data.foudata[current].title}`
-    })
+    });
   },
 
   // 点击进入列表
   golist(val) {
     wx.navigateTo({
       url: `/pages/listall/index?name=${val.currentTarget.dataset.name}`
-    })
+    });
   },
 
   // 获取云数据库中的数据
   getData() {
-    app.getCloudData().then(res => {
+    app.getCloudData().then(res => {      
       this.setData({
         scroll: res.data[0].scrolldata,
         fdata: res.data[0].fdata,

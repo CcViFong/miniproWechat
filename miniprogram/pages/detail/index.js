@@ -28,6 +28,7 @@ Page({
   getALLData(name, num) {
     app.getCloudData().then(res => {
       let list = res.data[0][name][parseInt(num)];
+      list.summary = list.summary.split("\n");
       this.setData({
         imgsrc: list.src,
         title: list.title,
@@ -44,7 +45,7 @@ Page({
   // 检测视频插件中广告播放结束后立即播放视频内容
   playAdEnd(e){
     const TxvContext = requirePlugin("tencentvideo");
-    let txvContext = TxvContext.getTxvContext('txvideo');
+    const txvContext = TxvContext.getTxvContext('txvideo');
     if(e.detail.isAd){ //e.detail.isAd: true为广告类型  false为非广告类型
       txvContext.play();  //视频播放
     }
