@@ -18,7 +18,6 @@ Page({
       timingFunction: 'ease',
     });
     animation.scale(1.3).opacity(0).step();
-
     this.setData({
       ani: animation.export()      
     })

@@ -30,11 +30,11 @@
             <!-- 评分 -->
             <view>
                 <span>评分: </span>
-                <span class="stars-box {{starflag >= 1? 'stars-box-on':''}}"></span>
-                <span class="stars-box {{starflag >= 2? 'stars-box-on':''}}"></span>
-                <span class="stars-box {{starflag >= 3? 'stars-box-on':''}}"></span>
-                <span class="stars-box {{starflag >= 4? 'stars-box-on':''}}"></span>
-                <span class="stars-box {{starflag >= 5? 'stars-box-on':''}}"></span>
+                <span class="stars-box {{starflag >= 1? 'stars-box-on':''}} {{starflag > 0 && starflag < 1? 'stars-half-on':''}}"></span>
+                <span class="stars-box {{starflag >= 2? 'stars-box-on':''}} {{starflag > 1 && starflag < 2? 'stars-half-on':''}}"></span>
+                <span class="stars-box {{starflag >= 3? 'stars-box-on':''}} {{starflag > 2 && starflag < 3? 'stars-half-on':''}}"></span>
+                <span class="stars-box {{starflag >= 4? 'stars-box-on':''}} {{starflag > 3 && starflag < 4? 'stars-half-on':''}}"></span>
+                <span class="stars-box {{starflag >= 5? 'stars-box-on':''}} {{starflag > 4 && starflag < 5? 'stars-half-on':''}}"></span>
                 <span>{{rank}}</span>
             </view>
             <view>

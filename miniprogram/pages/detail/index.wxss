@@ -87,6 +87,16 @@ page{
     background-size: 100% 100%;
 }
 
+/* 亮的半星 */
+.stars-half-on{
+    width: 30rpx;
+    height: 30rpx;
+    display: inline-block;
+    margin:0 5rpx;  
+    background: url('https://s2.ax1x.com/2019/08/21/mN1gUO.png'); 
+    background-size: 100% 100%;
+}
+
 
 .main-desc-parttwo{
     margin-top: 60rpx;
