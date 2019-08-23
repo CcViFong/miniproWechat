@@ -1,113 +1,44 @@
-// pages/detail/index.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    url:'',
-    name:'',
-    flag:false,
-    secret:'',
-    itemshow:true,
-    items:[
-      {icon:'icon-caidaniconwodehui',text:'我的资料'},
-      {icon:'icon-collect',text:'我的收藏夹'},
-      {icon:'icon-set',text:'设置中心'},
+    url: 'https://s2.ax1x.com/2019/08/23/mDURTU.jpg',
+    nickName: 'wxUser',
+    flag: false,
+    secret: '',
+    itemshow: true,
+    itemsData: [
+      { icon: 'icon-huiyuan', text: '我的会员' },
+      { icon: 'icon-unie60b', text: '我的点赞' },
+      { icon: 'icon-shoucang1', text: '我的收藏' },
+      { icon: 'icon-huodong', text: '活动详情' },
+      { icon: 'icon-yijianfankui1', text: '意见反馈' },
+      { icon: 'icon-guanyuwomen1', text: '关于我们' }
     ]
   },
 
-  // 登录
-  login() {
-    let _this = this;    
-    wx.login({
-      success(res) {        
-        if (res.code) {
-          //发起网络请求
-          wx.request({
-            url: 'https://api.weixin.qq.com/sns/jscode2session',
-            data: {
-              appid: 'wx5f74e22484de02cd',
-              secret: _this.data.secret,
-              js_code: res.code,
-              grant_type: 'authorization_code'
-            },
-            success(res) {
-              console.log(res)
-              _this.shouquan();
-            }
-          })
-        } else {
-          wx.showToast({
-            title: '登陆失败',
-            icon: 'none',
-            duration: 1000
-          })
-        }
-      }
-    })
-  },
-
-  // 授权
-  shouquan() {
-    let _this = this;
-    wx.getSetting({
-      success(res) {
-        wx.authorize({
-          scope: 'scope.userInfo',
-          success(res) {
-            wx.getUserInfo({
-              success(res){
-                wx.showToast({
-                  title:"授权登录成功",
-                  icon:"success",
-                  duration:1500
-                })                
-                _this.setData(
-                  {
-                    name:res.userInfo.nickName,
-                    url:res.userInfo.avatarUrl,
-                    flag:false
-                  }
-                )
-              }
-            })
-          }
-        })
-      }
-    })
-  },
-
-  // 初始化
-  init(){
-    let _this = this;
-    const db = wx.cloud.database({ env: 'v001-57ea91' })
-    db.collection('filmData').get().then(res => {
+  /**
+   * 初始化
+   */
+  init() {
+    const url = app.globalData.userImg;
+    const name = app.globalData.userName;
+    if (url && name) {
       this.setData({
-        secret: res.data[0].pwd,
+        url: url,
+        nickName: name
       })
-    })
-    wx.checkSession({
-      success() {
-        _this.data.flag = false;
-        _this.shouquan();
-      },
-      fail() {
-        _this.data.flag = true;
-        wx.showToast({
-          title:'登录超时',
-          icon:'none',
-          duration:1000
-        })
-      }
-    })
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.init();
+    this.init();
   },
 
   /**

@@ -11,7 +11,9 @@ Page({
     dataname: ''
   },
 
-  // 获取云数据库中的数据
+  /**
+   * 获取云数据库中的数据
+   */ 
   getData() {
     app.getCloudData().then(res => {
       this.setData({
@@ -20,7 +22,10 @@ Page({
     })
   },
 
-  // 跳转对应的网页
+  /**
+   * 跳转对应的网页
+   * @param {*} e 
+   */ 
   senddata(e) {
     let current = parseInt(e.currentTarget.id)
     wx.navigateTo({

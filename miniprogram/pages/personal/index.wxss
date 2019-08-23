@@ -1,5 +1,55 @@
-.personal-contain{
+.person-head{
+    height: 350rpx;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+.head-img{
+    width: 170rpx;
+    height: 170rpx;
+    border-radius: 50%;
+    border: 1px solid #f1f1f1;
+    margin: 10rpx;
+}
+
+.head-name{
+    font-size: 12px;
+    font-weight: 700;
+}
+.sorts-list{    
+    padding: 10rpx;
+}
+.list-item{
+    width: 33.3%;
+    height: 200rpx;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.item-iconpic{
+    font-size: 32px;
+    margin-bottom: 15rpx; 
+    color: rgb(162, 32, 118);   
+}
+.list-item:nth-of-type(2) > .item-iconpic{
+    color: rgb(187, 134, 94)
+}
+.list-item:nth-of-type(3) > .item-iconpic{
+    color: rgb(93, 172 , 129)
+}
+.list-item:nth-of-type(4) > .item-iconpic{
+    color: rgb(125 , 185, 222)
+}
+.list-item:nth-of-type(5) > .item-iconpic{
+    color: rgb(106, 76, 156)
+}
+.list-item:nth-of-type(6) > .item-iconpic{
+    color: rgb(58, 50 , 38)
+}
+.item-title{
+    font-size: 12px;
+    font-weight: 500;
 }

@@ -1,3 +1,17 @@
 <view class="personal-contain">
-  待开发~~~~
+<!-- 头像 BEGIN -->
+  <view class="person-head">
+    <image class="head-img" src="{{url}}"></image>
+    <text class="head-name">{{nickName}}</text>
+  </view>
+  <!-- 头像 END -->
+
+  <!-- 功能列表 BEING -->
+  <view class="sorts-list">
+    <view class="list-item" wx:for="{{itemsData}}" wx:key="{{index}}">
+      <view class="iconfont {{item.icon}} item-iconpic"></view>
+      <text class="item-title">{{item.text}}</text>
+    </view>
+  </view>
+  <!-- 功能列表 END -->
 </view>

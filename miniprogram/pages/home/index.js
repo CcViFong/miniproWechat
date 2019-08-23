@@ -17,7 +17,10 @@ Page({
     foudata: [],
   },
 
-  // 点击轮播图进入详细内容
+  /**
+   * 点击轮播图进入详细内容
+   * @param {*} e 
+   */ 
   sendscroll(e){
     let current = parseInt(e.currentTarget.id);
     wx.navigateTo({
@@ -25,7 +28,10 @@ Page({
     });
   },
 
-  // 点击第一组中的其中一个显示详情内容
+  /**
+   * 点击第一组中的其中一个显示详情内容
+   * @param {*} e 
+   */
   sendfdata(e) {
     let current = parseInt(e.currentTarget.id);
     wx.navigateTo({
@@ -33,7 +39,10 @@ Page({
     });
   },
 
-  // 点击第二组中的其中一个显示详情内容
+  /**
+   * 点击第二组中的其中一个显示详情内容
+   * @param {*} e 
+   */
   sendsdata(e) {
     let current = parseInt(e.currentTarget.id);
     wx.navigateTo({
@@ -41,7 +50,10 @@ Page({
     });
   },
 
-  // 点击第三组中的其中一个显示详情内容
+  /**
+   * 点击第三组中的其中一个显示详情内容
+   * @param {*} e 
+   */ 
   sendtdata(e) {
     let current = parseInt(e.currentTarget.id);
     wx.navigateTo({
@@ -49,7 +61,10 @@ Page({
     });
   },
 
-  // 点击第四组中的其中一个显示详情内容
+  /**
+   * 点击第四组中的其中一个显示详情内容
+   * @param {*} e 
+   */ 
   sendfhdata(e) {
     let current = parseInt(e.currentTarget.id);
     wx.navigateTo({
@@ -57,14 +72,19 @@ Page({
     });
   },
 
-  // 点击进入列表
+  /**
+   * 点击进入列表
+   * @param {*} val 
+   */ 
   golist(val) {
     wx.navigateTo({
       url: `/pages/listall/index?name=${val.currentTarget.dataset.name}`
     });
   },
 
-  // 获取云数据库中的数据
+  /**
+   * 获取云数据库中的数据
+   */ 
   getData() {
     app.getCloudData().then(res => {      
       this.setData({

@@ -11,7 +11,10 @@ App({
       })
     }
 
-    this.globalData = {}
+    this.globalData = {
+      userName:'',
+      userImg:''
+    }
   },
 
   // 请求云数据库

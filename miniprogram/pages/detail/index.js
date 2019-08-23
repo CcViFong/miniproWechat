@@ -24,7 +24,11 @@ Page({
     this.getALLData(options.name, options.num);
   },
 
-  // 获取页面上的数据
+  /**
+   * 获取页面上的数据
+   * @param {*} name 数据名称
+   * @param {*} num  数据的下标
+   */
   getALLData(name, num) {
     app.getCloudData().then(res => {
       let list = res.data[0][name][parseInt(num)];
@@ -42,7 +46,10 @@ Page({
     })    
   },
 
-  // 检测视频插件中广告播放结束后立即播放视频内容
+  /**
+   * 检测视频插件中广告播放结束后立即播放视频内容
+   * @param {*} e 
+   */
   playAdEnd(e){
     const TxvContext = requirePlugin("tencentvideo");
     const txvContext = TxvContext.getTxvContext('txvideo');
