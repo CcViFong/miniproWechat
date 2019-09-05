@@ -4,6 +4,7 @@
 	"setting": {
 		"urlCheck": false,
 		"es6": true,
+		"enhance": false,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
@@ -21,7 +22,7 @@
 	},
 	"appid": "wx5f74e22484de02cd",
 	"projectname": "first",
-	"libVersion": "2.2.5",
+	"libVersion": "2.8.1",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {

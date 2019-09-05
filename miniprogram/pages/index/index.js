@@ -27,7 +27,7 @@ Page({
       ani: animation.export()
     })
   },
-  /**
+  /*
    * 初始化
    */
   init() {
@@ -56,24 +56,14 @@ Page({
     let _this = this;
     wx.getSetting({
       success(res) {
-        wx.authorize({
-          scope: 'scope.userInfo',
+        wx.getUserInfo({
           success(res) {
-            wx.getUserInfo({
-              success(res) {
-                // wx.showToast({
-                //   title: "授权登录成功",
-                //   icon: "success",
-                //   duration: 1500
-                // })
-                app.globalData.userName = res.userInfo.nickName;
-                app.globalData.userImg = res.userInfo.avatarUrl;
-                _this.setData({
-                  flag: false
-                });
-                _this.goHome();
-              }
-            })
+            app.globalData.userName = res.userInfo.nickName;
+            app.globalData.userImg = res.userInfo.avatarUrl;
+            _this.setData({
+              flag: false
+            });
+            _this.goHome();
           }
         })
       }
@@ -87,6 +77,7 @@ Page({
     let _this = this;
     wx.login({
       success(res) {
+        console.log(res)
         if (res.code) {
           //发起网络请求
           wx.request({
@@ -98,7 +89,11 @@ Page({
               grant_type: 'authorization_code'
             },
             success(res) {
-              _this.shouquan();
+              console.log(res);
+              // _this.shouquan();
+            },
+            fail(err){
+              console.log(err)
             }
           })
         } else {

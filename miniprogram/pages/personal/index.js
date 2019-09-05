@@ -1,6 +1,52 @@
 const app = getApp();
-Page({
+import * as echarts from '../../ec-canvas/echarts';
 
+function initChart(canvas, width, height) {
+  const chart = echarts.init(canvas, null, {
+    width: width,
+    height: height
+  });
+  canvas.setChart(chart);
+
+  let option = {
+    title: {
+      text: '类型偏好'
+    },
+    radar: {
+      name: {
+        textStyle: {
+          color: '#fff',
+          backgroundColor: '#999',
+          borderRadius: 3,
+          padding: [5, 5],
+        }
+      },
+      indicator: [
+        { name: '恐怖片', max: 5 },
+        { name: '悬疑片', max: 5 },
+        { name: '动作片', max: 5 },
+        { name: '科幻片', max: 5 },
+        { name: '惊悚片', max: 5 },
+        { name: '战争片', max: 5 }
+      ]
+    },
+    series: [{
+      name: '',
+      type: 'radar',
+      areaStyle: { normal: {} },
+      data: [
+        {
+          value: [5, 4, 3, 4, 4, 2],
+          name: ''
+        }
+      ]
+    }]
+  };
+  chart.setOption(option);
+  return chart;
+}
+
+Page({
   /**
    * 页面的初始数据
    */
@@ -17,7 +63,11 @@ Page({
       { icon: 'icon-huodong', text: '活动详情' },
       { icon: 'icon-yijianfankui1', text: '意见反馈' },
       { icon: 'icon-guanyuwomen1', text: '关于我们' }
-    ]
+    ],
+    ec: {
+      onInit: initChart
+    },
+    rankBoxShowFlag: false,
   },
 
   /**
@@ -32,6 +82,27 @@ Page({
         nickName: name
       })
     }
+  },
+
+  /**
+   * 显示评分模块
+   */
+  rankBoxShow(e) {
+    let current = e.currentTarget.dataset.index;
+    if (current === 0) {
+      this.setData({
+        rankBoxShowFlag: true
+      });
+    }
+  },
+
+  /**
+   * 隐藏评分模块
+   */
+  rankBoxhide() {
+    this.setData({
+      rankBoxShowFlag: false
+    });
   },
 
   /**
@@ -59,7 +130,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    this.rankBoxhide();
   },
 
   /**

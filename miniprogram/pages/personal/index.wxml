@@ -1,17 +1,21 @@
 <view class="personal-contain">
-<!-- 头像 BEGIN -->
+  <!-- 头像 BEGIN -->
   <view class="person-head">
     <image class="head-img" src="{{url}}"></image>
     <text class="head-name">{{nickName}}</text>
   </view>
   <!-- 头像 END -->
-
   <!-- 功能列表 BEING -->
   <view class="sorts-list">
-    <view class="list-item" wx:for="{{itemsData}}" wx:key="{{index}}">
+    <view class="list-item" wx:for="{{itemsData}}" wx:key="{{index}}" data-index="{{index}}" bindtap="rankBoxShow">
       <view class="iconfont {{item.icon}} item-iconpic"></view>
       <text class="item-title">{{item.text}}</text>
     </view>
   </view>
   <!-- 功能列表 END -->
+</view>
+<view class="modelBox" wx:if="{{rankBoxShowFlag}}" bindtap="rankBoxhide">
+  <view class="canvasbox">
+    <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+  </view>
 </view>
