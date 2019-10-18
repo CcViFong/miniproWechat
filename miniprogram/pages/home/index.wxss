@@ -47,3 +47,25 @@ page{
     font-size: 12px;
     text-align: center;
 }
+
+.footer-line{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.line-left,.line-right{
+    width: 150rpx;
+    height: 1rpx;
+    border-top: 2px solid #8DB6CD;
+    border-radius:2rpx; 
+}
+
+.line-middle{
+    width: 130rpx;
+    height: 100rpx;
+    text-align: center;
+    line-height: 100rpx;
+    font-size: 12px;
+    color: #8DB6CD;
+}

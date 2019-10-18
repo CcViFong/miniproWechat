@@ -1,10 +1,13 @@
 <view class="personal-contain">
   <!-- 头像 BEGIN -->
   <view class="person-head">
-    <image class="head-img" src="{{url}}"></image>
-    <text class="head-name">{{nickName}}</text>
+    <!-- <image class="head-img" src="{{url}}"></image> -->
+    <open-data class="head-img" type="userAvatarUrl"></open-data>
+    <open-data class="head-name" type="userNickName"></open-data>
+    <!-- <text class="head-name">{{nickName}}</text> -->
   </view>
   <!-- 头像 END -->
+
   <!-- 功能列表 BEING -->
   <view class="sorts-list">
     <view class="list-item" wx:for="{{itemsData}}" wx:key="{{index}}" data-index="{{index}}" bindtap="rankBoxShow">
@@ -13,9 +16,21 @@
     </view>
   </view>
   <!-- 功能列表 END -->
+
+  <!-- weui测试模块 BEIGN -->
+  <view class="weui-footer weui-footer_fixed-bottom">
+    <view class="weui-footer__links">
+      <view class="weui-footer__link">独家分享</view>
+    </view>
+    <view class="weui-footer__text">Copyright © 2019-2099 ViFong</view>
+  </view>
+  <!-- weui测试模块 END -->
 </view>
+
+<!-- echarts图表 BEGIN -->
 <view class="modelBox" wx:if="{{rankBoxShowFlag}}" bindtap="rankBoxhide">
   <view class="canvasbox">
     <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
   </view>
 </view>
+<!-- echarts图表 END -->

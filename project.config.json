@@ -24,7 +24,10 @@
 	"projectname": "first",
 	"libVersion": "2.8.1",
 	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
+	"simulatorPluginLibVersion": {
+		"qywx_simulator_plugin": "1.2.0"
+	},
+	"compileType": "miniprogram",
 	"condition": {
 		"search": {
 			"current": -1,

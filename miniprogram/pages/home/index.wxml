@@ -3,7 +3,7 @@
     <swiper indicator-dots indicator-active-color="green" indicator-color="#fff" autoplay interval="2500" circular style="height:240px;">
         <block wx:for="{{scroll}}" wx:key="{{index}}">
             <swiper-item id="{{index}}" bindtap="sendscroll">
-                <image src="{{item.homesrc}}" class="swiper-img"/>
+                <image src="{{item.homesrc}}" class="swiper-img" />
             </swiper-item>
         </block>
     </swiper>
@@ -19,7 +19,7 @@
         <view>
             <scroll-view scroll-x class="sort-scroll">
                 <view wx:for="{{fdata}}" wx:key="{{index}}" class="scroll-contain" id="{{index}}" bindtap="sendfdata">
-                    <image src="{{item.src}}" class="scroll-img"/>
+                    <image src="{{item.src}}" class="scroll-img" />
                     <view class="scroll-desc">{{item.title}}</view>
                 </view>
             </scroll-view>
@@ -37,7 +37,7 @@
         <view>
             <scroll-view scroll-x class="sort-scroll">
                 <view wx:for="{{secdata}}" wx:key="{{index}}" class="scroll-contain" id="{{index}}" bindtap="sendsdata">
-                    <image src="{{item.src}}" class="scroll-img"/>
+                    <image src="{{item.src}}" class="scroll-img" />
                     <view class="scroll-desc">{{item.title}}</view>
                 </view>
             </scroll-view>
@@ -55,7 +55,7 @@
         <view>
             <scroll-view scroll-x class="sort-scroll">
                 <view wx:for="{{thidata}}" wx:key="{{index}}" class="scroll-contain" id="{{index}}" bindtap="sendtdata">
-                    <image src="{{item.src}}" class="scroll-img"/>
+                    <image src="{{item.src}}" class="scroll-img" />
                     <view class="scroll-desc">{{item.title}}</view>
                 </view>
             </scroll-view>
@@ -73,11 +73,19 @@
         <view>
             <scroll-view scroll-x class="sort-scroll">
                 <view wx:for="{{foudata}}" wx:key="{{index}}" class="scroll-contain" id="{{index}}" bindtap="sendfhdata">
-                    <image src="{{item.src}}" class="scroll-img"/>
+                    <image src="{{item.src}}" class="scroll-img" />
                     <view class="scroll-desc">{{item.title}}</view>
                 </view>
             </scroll-view>
         </view>
     </view>
     <!-- 分类4 End -->
+
+    <!-- 底行 BEIGN -->
+    <view class="footer-line">
+        <view class="line-left"></view>
+        <view class="line-middle">暂无更多</view>
+        <view class="line-right"></view>
+    </view>
+    <!-- 底行 END -->
 </view>
